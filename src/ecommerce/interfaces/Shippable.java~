@@ -1,0 +1,4 @@
+package ecommerce.interfaces;
+
+public class Shippable {
+}
