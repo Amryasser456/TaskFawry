@@ -1,4 +1,4 @@
-package ecommerce.core;
+package ecommerce.System;
 
 public class Customer {
     private String name;

@@ -1,4 +1,4 @@
-package ecommerce.core;
+package ecommerce.System;
 
 import ecommerce.models.CartItems;
 import ecommerce.models.Product;

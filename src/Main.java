@@ -1,7 +1,7 @@
 import ecommerce.models.*;
 import ecommerce.interfaces.*;
-import ecommerce.core.*;
-import ecommerce.services.ShippingService;
+import ecommerce.System.*;
+import ecommerce.services.Shipping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +34,9 @@ public class Main {
         for (CartItems item : items) {
             Product p = item.getProduct();
 
-            if (p instanceof ExpiredProducts) {
-                if (((ExpiredProducts)p).isExpired()) {
+            if (p instanceof Expirable) {
+                Expirable exp = (Expirable) p;
+                if (exp.getExpiryDate().isBefore(java.time.LocalDate.now())) {
                     System.out.println(p.getName() + " is expired");
                     return;
                 }
@@ -63,7 +64,7 @@ public class Main {
         }
 
         if (!toShip.isEmpty()) {
-            ShippingService.shipItems(toShip);
+            Shipping.shipItems(toShip);
         }
 
         customer.deductBalance(total);

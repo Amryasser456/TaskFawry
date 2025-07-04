@@ -3,7 +3,7 @@ package ecommerce.services;
 import ecommerce.interfaces.Shippable;
 import java.util.*;
 
-public class ShippingService {
+public class Shipping {
     public static void shipItems(List<Shippable> items) {
         System.out.println("** Shipment notice **");
 
